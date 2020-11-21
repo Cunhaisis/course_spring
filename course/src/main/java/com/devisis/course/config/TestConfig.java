@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.devisis.course.entites.Category;
 import com.devisis.course.entites.Order;
+import com.devisis.course.entites.Product;
 import com.devisis.course.entites.User;
 import com.devisis.course.entites.enums.OrderStatus;
 import com.devisis.course.respositories.CategoryRepository;
 import com.devisis.course.respositories.OrderRepository;
+import com.devisis.course.respositories.ProductRepository;
 import com.devisis.course.respositories.UserRepository;
 
 @Configuration
@@ -28,6 +30,9 @@ public class TestConfig implements CommandLineRunner {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -35,6 +40,14 @@ public class TestConfig implements CommandLineRunner {
 		Category cat1 = new Category(null, "Electronics");
 		Category cat2 = new Category(null, "Books");
 		Category cat3 = new Category(null, "Computers");
+		
+		Product p1 = new Product(null, "Notbook Lenovo Ideapad s145", "i7 16Gb", 4000.0, "");
+		Product p2 = new Product(null, "Playstation 3", "Slin 500Gb.", 1000.0, "");
+		Product p3 = new Product(null, "Xiaomi redmi 9s", "Celular da Xiaomi", 1550.0, "");
+		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
+		Product p5 = new Product(null, "Diario dos Winchesters", "Cras fringilla convallis sem vel faucibus.", 100.99, ""); 
+		
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 
