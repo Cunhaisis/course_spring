@@ -13,7 +13,7 @@ import com.devisis.course.entites.User;
 import com.devisis.course.service.UserService;
 
 @RestController
-@RequestMapping(value = "/orders")
+@RequestMapping(value = "/users")
 public class UserResource {
 
 	@Autowired
